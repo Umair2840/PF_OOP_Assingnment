@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pyramid_decreasing_num
+namespace Attempt_for_Diamond_with_numbers
 {
     internal class Program
     {
@@ -43,3 +43,4 @@ namespace Pyramid_decreasing_num
             
     }
 }
+
