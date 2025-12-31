@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pyramid_Pattern
+namespace Number_Pyramid
 {
     internal class Program
     {
@@ -37,3 +37,4 @@ namespace Pyramid_Pattern
         }
     }
 }
+
