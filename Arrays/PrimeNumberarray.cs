@@ -1,4 +1,4 @@
-﻿/*(Revise Listing 5.15, PrimeNumber.java) Listing 5.15 determines whether a num
+﻿/*Listing 5.15 determines whether a num
 ber n is prime by checking whether 2, 3, 4, 5, 6, . . . , n/2 is a divisor. If a divisor 
 is found, n is not prime. A more efficient approach is to check whether any of the 
 prime numbers less than or equal to 2n can divide n evenly. If not, n is prime. 
@@ -28,9 +28,9 @@ namespace _7._6_Determine_Prime_Numbers
             }
 
         }
-        public static bool Is_prime(int prime)
+        public static bool Is_prime(int prime)  // O sir ab ye mt keh di jiye ga ke comment hain to gpt maara ho ga
         {
-            if (prime <= 1) return false;          // Handles exception case
+            if (prime <= 1) return false;          // Handles exception case 
             else if (prime == 2) return true;
             else if (prime % 2 == 0) return false; // Handles even cause
             else
@@ -44,6 +44,7 @@ namespace _7._6_Determine_Prime_Numbers
         }
     }
 }
+
 
 
 
