@@ -4,37 +4,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Number_Pyramid
+namespace ATM_Simulator_Program
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int size = 8;
-            for (int row = 1; row < size; row++)
+            bool flag = false;
+            int balance = 5000;
+            int amount;
+            int integerChoice = 1;
+            char charChoice = 'y';
+
+            while (charChoice != 'n')
             {
-                int incnum = 1,decnum = 1, num1 = 1,num2 = 2;
-                for (int col = size;  col > row; col--)
+                for (int i = 0; i < 4; i++)
                 {
-                    Console.Write("     ");
+                    Console.WriteLine("1. Check Balance");
+                    Console.WriteLine("2. Deposit");
+                    Console.WriteLine("3. Withdraw");
+                    Console.WriteLine("4. Exit");
+
+                    integerChoice = int.Parse(Console.ReadLine());
+
+                    if (integerChoice == 1)
+                    {
+                        Console.WriteLine("Current balance: " + balance);
+                        break;
+                    }
+                    else if (integerChoice == 2)
+                    {
+                        Console.Write("Enter the amount you wish to deposit: ");
+                        amount = int.Parse(Console.ReadLine());
+
+                        balance = Deposit(amount, balance);
+                        Console.WriteLine("Current balance: " + balance);
+                        break;
+                    }
+                    else if (integerChoice == 3)
+                    {
+                        Console.Write("Enter the amount you wish to withdraw: ");
+                        amount = int.Parse(Console.ReadLine());
+                        if (amount > balance)
+                        {
+                            Console.WriteLine("Not enough balance");
+                        }
+                        else 
+                        {
+                            balance = Withdraw(amount, balance);
+                            Console.WriteLine("Current balance: " + balance);
+                            break; 
+                        }
+                        
+                    }
+                    else
+                    {
+                        flag = true;
+                        Console.WriteLine("Thank You!");
+                        break;
+                    }
                 }
-                while ( num1 <= row)
+
+                if (flag == false)
                 {
-                    if(incnum.ToString().Length == 1) Console.Write(incnum + "    ");
-                    else if(incnum.ToString().Length == 2){ Console.Write(incnum + "   "); }
-                    else {  Console.Write(incnum + "   ");}
-                        incnum *= 2; num1++;
+                    Console.Write("Would you like to perform another transaction (y/n): ");
+                    charChoice = char.Parse(Console.ReadLine());
                 }
-                decnum = incnum/2;
-                while (num2 <= row)
-                {
-                    decnum /= 2; num2++;
-                    if (num2 <= 4) Console.Write(decnum + "    ");
-                    else { Console.Write(decnum + "   "); }
-                }
-                Console.WriteLine();
+            }
+
+            if (flag == false)
+            {
+                Console.WriteLine("Thank you!");
             }
         }
+        
+    static int Deposit(int amount, int balance)
+        {
+            return amount + balance;
+        }
+
+        static int Withdraw(int amount, int balance)
+        {
+            return ( balance - amount);
+        }
+
+
     }
 }
 
