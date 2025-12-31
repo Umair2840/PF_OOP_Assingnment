@@ -1,35 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _seond_max_in_an_array
+namespace _7._5_Print_Distinct_Elements
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int max = 0;
-            int secondmax = 0;
-
-            int[] array = { 8, 2, 3, 7 };
-
-            for (int i = 0; i < array.Length; i++)
+            bool flag = true;
+            int[] input = { 1, 2, 3, 4, 4, 2, 1, 6, 5, 4, 7, };
+            int[] distinct = new int[input.Length];
+            int distinctCount = 0;
+            for (int i = 0; i < input.Length; i++)
             {
-                if (array[i] > max)
+                flag = true;
+                for (int j = 0; j < distinct.Length; j++)
                 {
-                    secondmax = max;
-                    max = array[i];
+                    if (input[i] == distinct[j])
+                    {
+                        flag = false;
+                        break;
+                    }
                 }
-                else if (array[i] > secondmax)
+                if (flag)
                 {
-                    secondmax = array[i];
+                    distinct[distinctCount] = input[i];
+                    distinctCount++;
                 }
             }
+            for (int i = 0; i < distinctCount; i++)
+            {
+                Console.WriteLine(distinct[i]);
+            }
 
-            Console.WriteLine("Max: " + max);
-            Console.WriteLine("Second Max: " + secondmax);
 
         }
     }
