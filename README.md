@@ -1,5 +1,5 @@
 # PF_OOP_Assingnment
-Assignment Problems from PF and OOP
+Assignment Problems from PF and OOP.
 This repository contains practice problems as part of my  Object Oriented Programming coursework. It also includes stuff from programming fundamentals.
 ## Topics Covered
 - Loops
