@@ -4,36 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pyramid_Pattern
+namespace Pyramid_decreasing_num
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int size = 8;
-            for (int row = 1; row < size; row++)
+            int size = 5;
+            for (int i = 1; i < size; i++)
             {
-                int incnum = 1,decnum = 1, num1 = 1,num2 = 2;
-                for (int col = size;  col > row; col--)
+                for (int j = size; j > i ; j--)
                 {
-                    Console.Write("     ");
+                    Console.Write("  ");
                 }
-                while ( num1 <= row)
+                Console.Write(i);
+                for (int k= 2; k < i + i ;  k++)
                 {
-                    if(incnum.ToString().Length == 1) Console.Write(incnum + "    ");
-                    else if(incnum.ToString().Length == 2){ Console.Write(incnum + "   "); }
-                    else {  Console.Write(incnum + "   ");}
-                        incnum *= 2; num1++;
+                    if(i > 1) Console.Write("  ");
+
                 }
-                decnum = incnum/2;
-                while (num2 <= row)
+                if (i > 1) Console.WriteLine(i);
+                else Console.WriteLine();
+            }
+            for (int i = 1; i < size; i++)
+            {
+                for (int j = 1; j < i; j++)
                 {
-                    decnum /= 2; num2++;
-                    if (num2 <= 4) Console.Write(decnum + "    ");
-                    else { Console.Write(decnum + "   "); }
+                    Console.Write("  ");
                 }
-                Console.WriteLine();
+                Console.Write(i + size );
+                for (int k = size; k > i; k--)
+                {
+                    Console.Write("    ");
+                }
+                Console.WriteLine(i + size);
             }
         }
+            
     }
 }
