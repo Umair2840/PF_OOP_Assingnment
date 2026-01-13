@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Number_pyramid
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int size = 15;
+            for (int i = 1; i < size; i++)
+            {
+                int l = i - 1;
+                for (int j = size; j > i ; j--)
+                {
+                    Console.Write("   ");
+                }
+                for (int k = 1; k < i; k++)
+                {
+                    
+                    if (l.ToString().Length == 2) Console.Write(l + " ");
+                    else Console.Write(l + "  ");
+                    l--;    
+                }
+                for (int m = 2; m < i; m++)
+                {
+                    if(m.ToString().Length == 2) Console.Write(m + " ");
+                    else Console.Write(m + "  ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
