@@ -1,0 +1,125 @@
+using System;
+
+namespace Polymorp_Example
+{
+    public class Animal
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Animal()
+        {
+            Name = "Unknown Animal";
+            Age = 0;
+        }
+
+        public Animal(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
+        public virtual void Speak()
+        {
+            Console.WriteLine("Animal speaks in a generic way.");
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("Animal eats food.");
+        }
+    }
+
+    public class Cat : Animal
+    {
+        public bool LikesMilk { get; set; }
+
+        public Cat(string name, int age, bool likesMilk)
+            : base(name, age)
+        {
+            LikesMilk = likesMilk;
+        }
+
+        public override void Speak()
+        {
+            Console.WriteLine(Name + " (Cat) meows.");
+        }
+
+        public void Purr()
+        {
+            Console.WriteLine(Name + " purrs softly.");
+        }
+    }
+
+    public class Dog : Animal
+    {
+        public string Breed { get; set; }
+
+        public Dog(string name, int age, string breed)
+            : base(name, age)
+        {
+            Breed = breed;
+        }
+
+        public override void Speak()
+        {
+            Console.WriteLine(Name + " (Dog) barks!");
+        }
+
+        public new void Eat()
+        {
+            Console.WriteLine(Name + " (Dog) eats bones.");
+        }
+
+        public void EatAsAnimal()
+        {
+            base.Eat();
+        }
+
+        public void reproduces()
+        {
+            Console.WriteLine("Dog reproduces");
+        }
+    }
+
+    public class Bird : Animal
+    {
+        public double WingSpan { get; set; }
+
+        public Bird()
+        {
+            WingSpan = 0.0;
+        }
+
+        public Bird(string name, int age, double wingSpan)
+            : base(name, age)
+        {
+            WingSpan = wingSpan;
+        }
+
+        public override void Speak()
+        {
+            Console.WriteLine(Name + " (Bird) chirps.");
+        }
+    }
+
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Animal a1 = new Dog("Rex", 5, "German Shepherd");
+
+            a1.Speak();   // Dog barks (override)
+            a1.Eat();     // Animal eats food (shadowing)
+
+            Dog d = new Dog("Buddy", 4, "Labrador");
+            d.Eat();           // Dog eats bones
+            d.EatAsAnimal();   // Animal eats food
+
+            Bird b1 = new Bird();
+            Bird b2 = new Bird("Falcon", 2, 1.5);
+
+            b2.Speak();
+        }
+    }
+}
