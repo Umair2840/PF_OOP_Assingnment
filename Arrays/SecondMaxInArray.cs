@@ -34,3 +34,4 @@ namespace _seond_max_in_an_array
         }
     }
 }
+
