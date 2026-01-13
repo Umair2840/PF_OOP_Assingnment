@@ -1,0 +1,54 @@
+using System;
+
+namespace Geometry
+{
+    public class Circle
+    {
+        public double radius = 2;
+
+        public Circle()
+        {
+        }
+
+        public Circle(double newRadius)
+        {
+            radius = newRadius;
+        }
+
+        public double GetArea()
+        {
+            return radius * radius * Math.PI;
+        }
+
+        public double GetPerimeter()
+        {
+            return 2 * radius * Math.PI;   // FIXED
+        }
+
+        public void SetRadius(double newRadius)
+        {
+            radius = newRadius;
+        }
+
+        public double Circumference()
+        {
+            return 2 * radius * Math.PI;
+        }
+    }
+
+    public class TestCircle
+    {
+        public static void Main(string[] args)
+        {
+            Circle circle1 = new Circle(4);
+            Console.WriteLine("Area: " + circle1.GetArea());
+            Console.WriteLine("Circumference: " + circle1.Circumference());
+
+            Circle circle2 = new Circle();
+            Console.WriteLine("Area: " + circle2.GetArea());
+
+            circle2.radius = 100;
+            Console.WriteLine("Area after change: " + circle2.GetArea());
+        }
+    }
+}
