@@ -1,0 +1,74 @@
+using System;
+using System.Linq;
+
+namespace _7._14_Greatest_Common_Divisor_Problem
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            getGreatestCommonDivisor(8, 8, 8);
+        }
+
+        public static void getGreatestCommonDivisor(params int[] x)
+        {
+            int gcd = 1;
+            bool isodd = false;
+
+            // check if any number is odd
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] % 2 == 1)
+                {
+                    isodd = true;
+                    break;
+                }
+            }
+
+            if (isodd) // if numbers are odd
+            {
+                for (int divider = 1; divider <= x.Min(); divider += 2)
+                {
+                    bool isdividingallnums = true;
+
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        if (x[i] % divider != 0)
+                        {
+                            isdividingallnums = false;
+                            break;
+                        }
+                    }
+
+                    if (isdividingallnums)
+                    {
+                        gcd = divider;
+                    }
+                }
+            }
+            else // if all numbers are even
+            {
+                for (int divider = 2; divider <= x.Min(); divider += 2)
+                {
+                    bool isdividingallnums = true;
+
+                    for (int i = 0; i < x.Length; i++)
+                    {
+                        if (x[i] % divider != 0)
+                        {
+                            isdividingallnums = false;
+                            break;
+                        }
+                    }
+
+                    if (isdividingallnums)
+                    {
+                        gcd = divider;
+                    }
+                }
+            }
+
+            Console.WriteLine("GCD = " + gcd);
+        }
+    }
+}
